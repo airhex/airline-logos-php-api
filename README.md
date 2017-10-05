@@ -3,7 +3,8 @@ This is the official PHP wrapper for the AirHex logos API. The purpose of these 
 
 ## Example Usage
 ### Request example to get EK (IATA for Emirates Airlines) logo:
-`<?php
+```php
+<?php
 
 $curl = curl_init();
 
@@ -34,4 +35,5 @@ if ($err) {
 
 print_r($response);
 
-?>`
+?>
+```
