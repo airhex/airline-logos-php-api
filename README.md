@@ -2,6 +2,8 @@
 This is the official PHP wrapper for the [AirHex airline logos API](https://airhex.com/airlines/logos/). The purpose of these files is to provide a simple interface to the AirHex logos API. You are not required to use these files (in order to use the API), but it's recommended.
 
 ## Example Usage
+### Required fields:
+'iata', 'icao' or 'name' is required to complete the request
 ### Request example to get EK (IATA for Emirates Airlines) logo:
 ```php
 <?php
