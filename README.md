@@ -1,5 +1,5 @@
 # AirHex airline logos PHP API Wrapper
-This is the official PHP wrapper for the AirHex logos API. The purpose of these files is to provide a simple interface to the AirHex logos API. You are not required to use these files (in order to use the API), but it's recommended.
+This is the official PHP wrapper for the [AirHex airline logos API](https://airhex.com/airlines/logos/). The purpose of these files is to provide a simple interface to the AirHex logos API. You are not required to use these files (in order to use the API), but it's recommended.
 
 ## Example Usage
 ### Request example to get EK (IATA for Emirates Airlines) logo:
@@ -9,7 +9,7 @@ This is the official PHP wrapper for the AirHex logos API. The purpose of these 
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://airhex.com/api/v2/airlines?apikey=YOUR_API_KEY&iata=AIRLINE_IATA",
+  CURLOPT_URL => "https://airhex.com/api/v2/airlines?apikey=YOUR_API_KEY&iata=EK",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -37,3 +37,4 @@ print_r($response);
 
 ?>
 ```
+Fill in your API key in order to get logos without watermarks. [Obtain an API key if you don't have one yet](https://airhex.com/getstarted/).
