@@ -37,4 +37,4 @@ print_r($response);
 
 ?>
 ```
-Fill in your API key in order to get logos without watermarks. [Obtain an API key if you don't have one yet](https://airhex.com/getstarted/).
+Fill in your API key in order to get logos without watermarks. [Get an API key if you don't have one yet](https://airhex.com/getstarted/).
