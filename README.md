@@ -3,7 +3,7 @@ This is the official PHP wrapper for the [AirHex airline logos API](https://airh
 
 ## Example Usage
 ### Required fields:
-'iata', 'icao' or 'name' is required to complete the request
+'iata', 'width', 'height', 'type', 'md5apikey' are required to complete the request
 ### Request example to get EK (IATA for Emirates Airlines) logo:
 ```php
 <?php
@@ -11,7 +11,7 @@ This is the official PHP wrapper for the [AirHex airline logos API](https://airh
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://airhex.com/api/v2/airlines?apikey=YOUR_API_KEY&iata=EK",
+  CURLOPT_URL => "https://airhex.com/content/logos/airlines_EK_350_100_r.png?md5apikey=4d5669b5107fdc240dba0f03961c48e4",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -39,4 +39,4 @@ print_r($response);
 
 ?>
 ```
-Fill in your API key in order to get logos without watermarks. [Request API key if you don't have one yet](https://airhex.com/getstarted/).
+Fill in your API key in order to get logos without watermarks. [Request API key if you don't have one yet](https://airhex.com/buynow/).
