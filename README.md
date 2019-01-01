@@ -1,5 +1,5 @@
 # AirHex airline logos PHP API Wrapper
-This is the official PHP wrapper for the [AirHex airline logos API](https://airhex.com/airlines/logos/). The purpose of these files is to provide a simple interface to the AirHex logos API. You are not required to use these files (in order to use the API), but it's recommended.
+This is the official PHP wrapper for the [AirHex airline logos](https://airhex.com/airlines/logos/) API. The purpose of these files is to provide a simple interface to the AirHex logos API. You are not required to use these files (in order to use the API), but it's recommended.
 
 ## Example Usage
 ### Required fields:
