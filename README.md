@@ -1,42 +1,44 @@
 # AirHex airline logos PHP API Wrapper
-This is the official PHP wrapper for the [AirHex airline logos](https://airhex.com/products/airline-logos/) API. The purpose of these files is to provide a simple interface to the AirHex logos API. You are not required to use these files (in order to use the API), but it's recommended.
+This is the official PHP wrapper/function for the [AirHex airline logos](https://airhex.com/products/airline-logos/) API. The purpose of these wrapper is to provide a simple interface to the AirHex logos API.
 
 ## Example Usage
 ### Required fields:
 'iata', 'width', 'height', 'type', 'md5apikey' are required to complete the request
+
+Fill in your API key in order to get logos without watermarks. [Request API key if you don't have one yet](https://airhex.com/pricing/).
 ### Request example to get EK (IATA for Emirates Airlines) logo:
 ```php
 <?php
 
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://airhex.com/content/logos/airlines_EK_350_100_r.png?md5apikey=4d5669b5107fdc240dba0f03961c48e4",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_HTTPHEADER => array(
-    "cache-control: no-cache",
-    "postman-token: 00f22643-c97f-8ac9-4f12-715e6309143f"
-  ),
-));
-
-$response = curl_exec($curl);
-$err = curl_error($curl);
-
-curl_close($curl);
-
-if ($err) {
-  echo "cURL Error #:" . $err;
-} else {
-  echo $response;
+function airhex($iata,$type,$width,$height, $apikey) { // Prevents SQL Injection
+   //Generates md5 api key for a request
+   $md5 = md5($iata.'_'.$width.'_'.$height.'_'.$type.'_'.$apikey);
+   $results = 'https://content.airhex.com/content/logos/airlines_'.$iata.'_'.$width.'_'.$height.'_'.$type.'.png?md5apikey='.$md5;
+   return $results;
 }
 
-print_r($response);
+//Set airline IATA code for a query
+$iata = 'EK';
+
+//Type of a logo: r - for rectangular, s - for square and t - for tail logo
+$type = 'r';
+
+//Set width in pixels
+$width = '701';
+
+//Set height in pixels
+$height = '200';
+
+//Your API key
+$apikey = '12345';
+
+echo  '<img src="'.airhex($iata,$type,$width,$height,$apikey).'"/>';
 
 ?>
 ```
-Fill in your API key in order to get logos without watermarks. [Request API key if you don't have one yet](https://airhex.com/pricing/).
+This example will output Emirates logo.
+
+<img src="https://content.airhex.com/content/logos/airlines_EK_701_200_r.png?md5apikey=f43e061b8cdae6fb3c1c4360a59b7b1b" width="351" height="100">
+
+
+
